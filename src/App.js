@@ -13,6 +13,7 @@ function App() {
   return (
     <div>
       <Navbar isLoggedIn={isLoggedIn} setIsLogin={setIslogin} />
+      {/* <Signup setIsLoggedIn={setIslogin} /> */}
       <Routes>
         {/* <Route path="/" element={<MainHeader />} */}
         <Route path="/home" element={<Home />} />

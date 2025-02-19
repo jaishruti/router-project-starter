@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/Logo.svg";
+import Signup from "../pages/Signup";
 
 const Navbar = ({ isLoggedIn, setIsLogin }) => {
   return (
-    <div className="flex gap-10 text-lg">
+    <div className="flex gap-10 text-lg justify-evenly bg-black text-white max-h-fit p-2 items-center">
       <Link to="/">
         <img
           src={logo}
@@ -15,7 +16,7 @@ const Navbar = ({ isLoggedIn, setIsLogin }) => {
         />
       </Link>
       <nav>
-        <ul className="flex gap-3">
+        <ul className="flex gap-7">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -31,12 +32,16 @@ const Navbar = ({ isLoggedIn, setIsLogin }) => {
       <div className="flex gap-3">
         {!isLoggedIn && (
           <Link to="/login">
-            <button>Login</button>
+            <button className="text-black bg-yellow-400 p-2 px-3 rounded-lg text-center hover:font-semibold">
+              Login
+            </button>
           </Link>
         )}
         {!isLoggedIn && (
           <Link to="/signup">
-            <button>Signup</button>
+            <button className="text-black bg-yellow-400 p-2 px-3 rounded-lg text-center hover:font-semibold">
+              Signup
+            </button>
           </Link>
         )}
         {isLoggedIn && (

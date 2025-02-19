@@ -13,31 +13,39 @@ const SignupForm = () => {
     }));
   };
   return (
-    <div>
-      <div>
-        <button>Student</button>
-        <button>Instructor</button>
+    <div className="flex flex-col gap-4">
+      <div className="gap-1 flex justify-between bg-slate-700 text-white p-2 rounded-xl items-center">
+        <div className="bg-slate-500 w-[9.5rem] p-2 rounded-lg text-center">
+          <button>Student</button>
+        </div>
+        <div className=" w-[9.5rem] p-2 rounded-lg text-center">
+          <button>Instructor</button>
+        </div>
       </div>
-      <form>
-        <div>
-          <label htmlFor="first-name">First name</label>
-          <input
-            type="text"
-            name="firstName"
-            onChange={handler}
-            placeholder="Enter first name"
-          />
+      <form className="flex flex-col gap-2">
+        <div className="flex gap-3">
+          <div className="flex flex-col text-slate-500">
+            <label htmlFor="first-name ">First name</label>
+            <input
+              type="text"
+              name="firstName"
+              onChange={handler}
+              placeholder="Enter first name"
+              className="p-2 border border-slate-400 rounded-md w-[10rem]"
+            />
+          </div>
+          <div className="flex flex-col text-slate-500">
+            <label htmlFor="last-name ">Last name</label>
+            <input
+              type="text"
+              name="lastName"
+              onChange={handler}
+              placeholder="Enter last name"
+              className="p-2 border border-slate-400 rounded-md w-[10rem]"
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor="last-name">First name</label>
-          <input
-            type="text"
-            name="lastName"
-            onChange={handler}
-            placeholder="Enter last name"
-          />
-        </div>
-        <div>
+        <div className="flex flex-col text-slate-500">
           <label htmlFor="email">
             Email Address<sup>*</sup>
           </label>
@@ -47,39 +55,54 @@ const SignupForm = () => {
             value={formData.email}
             onChange={handler}
             required
+            className="p-2 border border-slate-400 rounded-md"
           />
         </div>
-        <div>
-          <label htmlFor="password">
-            Create Password<sup>*</sup>
+        <div className="flex flex-col text-slate-500">
+          <label htmlFor="password" className="">
+            Create Password<sup className="ml-1 text-red-700">*</sup>
           </label>
-          <input
-            type={showPass ? "text" : "password"}
-            name="password"
-            value={formData.password}
-            onChange={handler}
-            required
-          />
-          <span onClick={() => setShowPass((prev) => !prev)}>
-            {showPass ? <FaRegEyeSlash /> : <FaRegEye />}
-          </span>
+          <div className="flex gap-2 items-center ">
+            <input
+              type={showPass ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handler}
+              className="p-2 border border-slate-400 rounded-md w-[300px]"
+              required
+            />
+            <span
+              className="text-lg "
+              onClick={() => setShowPass((prev) => !prev)}
+            >
+              {showPass ? <FaRegEyeSlash /> : <FaRegEye />}
+            </span>
+          </div>
         </div>
-        <div>
+        <div className="flex flex-col text-slate-500">
           <label htmlFor="password">
             Confirm Password<sup>*</sup>
           </label>
-          <input
-            type={showPass ? "text" : "password"}
-            name="password"
-            value={formData.password}
-            onChange={handler}
-            required
-          />
-          <span onClick={() => setShowPass((prev) => !prev)}>
-            {showPass ? <FaRegEyeSlash /> : <FaRegEye />}
-          </span>
+          <div className="flex gap-2 items-center ">
+            <input
+              type={showPass ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handler}
+              className="p-2 border border-slate-400 rounded-md w-[300px]"
+              required
+            />
+            <span
+              className="text-lg "
+              onClick={() => setShowPass((prev) => !prev)}
+            >
+              {showPass ? <FaRegEyeSlash /> : <FaRegEye />}
+            </span>
+          </div>
         </div>
-        <button>Create Account</button>
+        <button className=" bg-yellow-400 p-2 rounded-md text-center hover:font-semibold">
+          Create Account
+        </button>
       </form>
     </div>
   );
